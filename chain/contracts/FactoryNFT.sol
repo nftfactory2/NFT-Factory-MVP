@@ -13,26 +13,19 @@ contract SimpleCollectible is ERC721,Ownable{
     using Counters for Counters.Counter;
     Counters.Counter private _tokenIds;
 
-      uint256 public  requiredAmount;  
 
     constructor (string memory Name , string memory Symbol,string memory _tokenURI, uint256 _requiredAmount) public ERC721(Name, Symbol){
       tokenURI = _tokenURI;
-      requiredAmount =_requiredAmount;
     }
 
-    modifier onlyAllowedAmount{
-        if (msg.value<requiredAmount){
+    function createCollectible( address recipient, uint256 _amount) payable returns (uint256)    {
+         if (msg.value < (_amount*1e18)){
           revert moreFunds(); 
         }
-      _;
-    }
-
-    function createCollectible( address recipient) payable public onlyAllowedAmount returns (uint256)    {
          _tokenIds.increment();
         uint256 newItemId = _tokenIds.current();
         _mint(recipient, newItemId);
         _setTokenURI(newItemId, tokenURI);
-
         return newItemId;
     }
 
