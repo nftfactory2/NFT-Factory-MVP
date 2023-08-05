@@ -5,17 +5,29 @@ import "@openzeppelin/contracts/utils/Counters.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
 import "@openzeppelin/contracts/token/ERC721/extensions/ERC721URIStorage.sol";
 
+error moreFunds();
+
 contract SimpleCollectible is ERC721,Ownable{
+
 
     using Counters for Counters.Counter;
     Counters.Counter private _tokenIds;
-    
 
-    constructor (string memory Name , string memory Symbol,string memory _tokenURI) public ERC721(Name, Symbol){
+      uint256 public  requiredAmount;  
+
+    constructor (string memory Name , string memory Symbol,string memory _tokenURI, uint256 _requiredAmount) public ERC721(Name, Symbol){
       tokenURI = _tokenURI;
+      requiredAmount =_requiredAmount;
     }
 
-    function createCollectible( address recipient) public   onlyOwner returns (uint256){
+    modifier onlyAllowedAmount{
+        if (msg.value<requiredAmount){
+          revert moreFunds(); 
+        }
+      _;
+    }
+
+    function createCollectible( address recipient) payable public onlyAllowedAmount returns (uint256)    {
          _tokenIds.increment();
         uint256 newItemId = _tokenIds.current();
         _mint(recipient, newItemId);
