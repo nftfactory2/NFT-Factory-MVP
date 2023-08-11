@@ -7,12 +7,19 @@ module.exports = {
   ],
   theme: {
     extend: {
+      colors: {
+        primary: '#FFC72C',
+        backgroundSideBar: '#130712',
+      },
       backgroundImage: {
-        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-        'gradient-conic':
-          'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
+        'gradient-linear': 'linear-gradient(135deg, #702D6C, #FFC72C)',
+        // 'side-bar': '#130712'
+      },
+      fontFamily: {
+        poppins: ['Poppins', 'sans-serif'],
+        orbitron: ['Orbitron', 'sans-serif'],
       },
     },
   },
   plugins: [],
-}
+};
