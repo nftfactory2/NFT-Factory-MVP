@@ -19,7 +19,7 @@ const Register = () => {
 
   const handleSubmit = (e: React.SyntheticEvent<EventTarget>): void => {
     e.preventDefault();
-    router.push('/dashboard', { scroll: false });
+    router.push('/launchpad', { scroll: false });
   };
 
   return (

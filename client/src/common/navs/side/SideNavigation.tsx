@@ -15,7 +15,7 @@ const SideBar = () => {
     {
       name: 'Launchpad',
       icon: faRocket,
-      to: '/launch',
+      to: '/launchpad',
     },
     {
       name: 'Analytics',

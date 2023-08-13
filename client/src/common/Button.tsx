@@ -1,30 +1,38 @@
-import React from 'react';
-
+import React, { ReactNode } from 'react';
+import Link from 'next/link';
 interface CustomButton {
   height?: number;
   width?: number;
-  text: string;
+  children?: ReactNode;
   backgroundColor?: string;
   style?: object;
+  as?: string;
+  href?: string;
+  handleClick?: () => void;
 }
 
 const Button: React.FC<CustomButton> = ({
   height,
   width = 100,
-  text,
+  children,
   backgroundColor = 'primary',
   style,
+  as = 'button',
+  href = '/',
+  handleClick,
 }) => {
   return (
     <div
       className={`bg-${backgroundColor}`}
+      onClick={handleClick}
       style={{
         width: `${width}%`,
         height,
+        cursor: 'pointer',
         ...style,
       }}
     >
-      {text}
+      {as === 'link' ? <Link href={href}>{children}</Link> : <>{children}</>}
     </div>
   );
 };
