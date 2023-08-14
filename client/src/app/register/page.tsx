@@ -1,8 +1,8 @@
 'use client';
 
-import MetaDescription from '@/components/MetaDescription';
 import { useRouter } from 'next/navigation';
 import React, { useState } from 'react';
+import { orbitron, poppins } from '../styles/fonts';
 
 const Register = () => {
   const router = useRouter();
@@ -24,14 +24,15 @@ const Register = () => {
 
   return (
     <>
-      <MetaDescription title='Register' />
-      <div className='flex justify-center items-center'>
+      <div className='flex justify-center items-center h-screen md:mx-5'>
         <div>
-          <h2 className='text-center text-primary font-orbitron'>Register</h2>
-          <form onSubmit={handleSubmit}>
-            <label>Brand name:</label>
+          <h3 className={`${orbitron.className} text-center text-primary font-orbitron text-4xl`}>
+            Register
+          </h3>
+          <form onSubmit={handleSubmit} className={`${poppins.className} mt-5`}>
+            <label className='text-md'>Brand name:</label>
             <input
-              className='shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline'
+              className='shadow appearance-none rounded w-full py-4 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline mb-3'
               name='name'
               type='text'
               placeholder='Enter Brand name'
@@ -39,9 +40,9 @@ const Register = () => {
               onChange={handleFieldChange}
             />
 
-            <label>Email Address:</label>
+            <label className='text-md'>Email Address:</label>
             <input
-              className='shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline'
+              className='shadow appearance-none rounded w-full py-4 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline mb-3'
               name='email'
               type='email'
               placeholder='Enter Email address'
@@ -49,7 +50,11 @@ const Register = () => {
               onChange={handleFieldChange}
             />
 
-            <button type='submit' className='bg-gradient-linear w-full p-5'>
+            <button
+              type='submit'
+              className='bg-gradient-linear w-full p-3 mt-5 rounded-md'
+              style={orbitron.style}
+            >
               Connect Wallet
             </button>
           </form>
