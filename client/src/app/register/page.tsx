@@ -26,7 +26,9 @@ const Register = () => {
     <>
       <div className='flex justify-center items-center h-screen md:mx-5'>
         <div>
-          <h3 className={`${orbitron.className} text-center text-primary font-orbitron text-4xl`}>
+          <h3
+            className={`${orbitron.className} text-center text-primary font-orbitron text-4xl`}
+          >
             Register
           </h3>
           <form onSubmit={handleSubmit} className={`${poppins.className} mt-5`}>
