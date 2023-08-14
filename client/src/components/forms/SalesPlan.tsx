@@ -1,3 +1,4 @@
+import { orbitron } from '@/app/styles/fonts';
 import EditableSection from '@/common/EditableSection';
 import React, { useState } from 'react';
 
@@ -8,7 +9,9 @@ const SalesPlanForm: React.FC = () => {
 
   return (
     <div>
-      <h1>Sales plan</h1>
+      <h2 className={`${orbitron.className} text-primary text-2xl mb-5`}>
+        Sales plan
+      </h2>
       <EditableSection
         title={'Marketing Plan'}
         placeholder={'Start typing'}

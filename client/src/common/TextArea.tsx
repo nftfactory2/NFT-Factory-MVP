@@ -1,36 +1,21 @@
 'use client';
+
 import React, { useState, useEffect } from 'react';
 import { poppins } from '@/app/styles/fonts';
-interface Props {
+
+type Props = {
   title: string;
   placeholder: string;
   onChangeHandler: (value: string) => void;
   style?: object;
-  type?: string;
   subTitle?: string;
   inputBackgroundColor?: string;
-}
+};
 
-const EditableSection: React.FC<Props> = (props) => {
-  const {
-    title,
-    placeholder,
-    onChangeHandler,
-    style,
-    type = 'text',
-    subTitle,
-    inputBackgroundColor,
-  } = props;
+const TextArea: React.FC<Props> = (props) => {
+  const { title, subTitle, placeholder, style } = props;
+
   const [value, setValue] = useState<string>('');
-
-  useEffect(() => {
-    const delayDebounceFn = setTimeout(() => {
-      if (onChangeHandler) {
-        onChangeHandler(value);
-      }
-    }, 1000);
-    return () => clearTimeout(delayDebounceFn);
-  }, [value]);
 
   return (
     <div
@@ -41,15 +26,13 @@ const EditableSection: React.FC<Props> = (props) => {
     >
       <h3 className={`block text-white text-sm font-bold mb-2`}>{title}</h3>
       {subTitle && <p className='text-sm text-gray-700'>{subTitle}</p>}
-      <input
+      <textarea
         className='shadow appearance-none rounded w-full py-4 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline mb-3'
-        id={type}
-        type={type ?? 'text'}
-        placeholder={placeholder}
+        rows={4}
+        cols={50}
+        maxLength={500}
         value={value}
-        style={{
-          background: inputBackgroundColor,
-        }}
+        placeholder={placeholder}
         onChange={(e) => {
           setValue(e.target.value);
         }}
@@ -58,4 +41,4 @@ const EditableSection: React.FC<Props> = (props) => {
   );
 };
 
-export default EditableSection;
+export default TextArea;

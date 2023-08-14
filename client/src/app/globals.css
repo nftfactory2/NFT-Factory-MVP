@@ -33,3 +33,22 @@ body {
     )
     rgb(var(--background-start-rgb));
 }
+
+form {
+  font-family: var(--font-poppins);
+}
+
+h3 {
+  font-family: var(--font-orbitron);
+}
+input,
+textarea,
+select {
+  background: rgba(255, 255, 255, 0.04);
+  box-shadow: -2px 0px 4px 0px rgba(255, 199, 44, 0.08);
+  backdrop-filter: blur(4px);
+}
+
+h1 {
+  font-family: var(--font-orbitron);
+}

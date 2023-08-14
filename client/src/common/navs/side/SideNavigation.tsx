@@ -29,7 +29,7 @@ const SideBar = () => {
     },
   ];
   return (
-    <div className='w-1/4 bg-gray-800 p-5 h-screen bg-gradient-linear'>
+    <div className='w-5/12 bg-gray-800 p-5 min-h-full bg-gradient-linear'>
       <Logo height={30} />
       <div className=''>
         {navigationLinks.map((item) => (

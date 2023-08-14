@@ -1,7 +1,7 @@
 'use client';
-import { useState } from 'react';
+import { orbitron } from '@/app/styles/fonts';
 import EditableSection from '@/common/EditableSection';
-import Button from '@/common/Button';
+import { useState } from 'react';
 
 export const SectionOneForm = () => {
   const [title, setTitle] = useState<string>('');
@@ -10,8 +10,10 @@ export const SectionOneForm = () => {
   const [goalText, setGoalText] = useState<string>('');
 
   return (
-    <div>
-      <h2>Project Details</h2>
+    <div className='my-10'>
+      <h2 className={`${orbitron.className} text-primary text-2xl mb-5`}>
+        Project Details
+      </h2>
       <EditableSection
         title={'Project Title'}
         placeholder={'Title'}
@@ -66,7 +68,9 @@ export const SecondSectionForm = () => {
 
   return (
     <div>
-      <h2>Project Details</h2>
+      <h2 className={`${orbitron.className} text-primary text-2xl mb-5`}>
+        Project Details
+      </h2>
       <EditableSection
         title={'Discord Link'}
         placeholder={'https:###'}

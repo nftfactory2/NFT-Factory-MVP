@@ -13,11 +13,10 @@ module.exports = {
       },
       backgroundImage: {
         'gradient-linear': 'linear-gradient(135deg, #702D6C, #FFC72C)',
-        // 'side-bar': '#130712'
       },
       fontFamily: {
-        poppins: ['Poppins', 'sans-serif'],
-        orbitron: ['Orbitron', 'sans-serif'],
+        poppins: ['var(--font-poppins)'],
+        orbitron: ['var(--font-orbitron)'],
       },
     },
   },

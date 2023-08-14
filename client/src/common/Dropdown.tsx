@@ -1,5 +1,6 @@
 'use client';
 import React, { useState, useEffect } from 'react';
+import { poppins } from '@/app/styles/fonts';
 
 interface DropdownList {
   item: string[];
@@ -22,22 +23,25 @@ const DropdownSelect: React.FC<DropdownList> = ({
   }, [value]);
 
   return (
-    <div className='my-4'>
-      <h2 className='text-lg font-semibold'>{title}</h2>
-      {subTitle && <h3 className='text-sm text-gray-600'>{subTitle}</h3>}
+    <div className={`${poppins.className} mb-5 flex flex-col`}>
+      <h2 className='text-lg block text-white text-sm font-bold mb-2'>
+        {title}
+      </h2>
+      {subTitle && <p className='text-sm text-gray-700'>{subTitle}</p>}
       <div className='mt-2'>
         <select
           value={value}
           placeholder='Select'
           name={title}
-          className='py-2 px-3 border rounded-md w-full text-black bg-white'
+          className='p-3 border rounded-md w-full text-black'
+          style={{ background: '#000' }}
           onChange={(e) => {
             setValue(e.target.value);
           }}
         >
           {item.length > 0 &&
             item.map((x, index) => (
-              <option key={index} value={x}>
+              <option key={index} value={x} className='bg-black'>
                 {x}
               </option>
             ))}

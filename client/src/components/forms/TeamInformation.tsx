@@ -1,6 +1,8 @@
 'use client';
-import EditableSection from '@/common/EditableSection';
 import React, { useState } from 'react';
+import { orbitron } from '@/app/styles/fonts';
+import EditableSection from '@/common/EditableSection';
+import TextArea from '@/common/TextArea';
 
 const TeamInformationForm: React.FC = () => {
   const [members, setMembers] = useState<string>('');
@@ -9,8 +11,10 @@ const TeamInformationForm: React.FC = () => {
 
   return (
     <div>
-      <h2>Team Information</h2>
-      <EditableSection
+      <h2 className={`${orbitron.className} text-primary text-2xl mb-5`}>
+        Team Information
+      </h2>
+      <TextArea
         title={'Members & their Roles'}
         placeholder={'Start Typing'}
         onChangeHandler={(value: string): void => {
@@ -18,7 +22,7 @@ const TeamInformationForm: React.FC = () => {
         }}
         subTitle='Please provide the names each team member and their roles'
       />
-      <EditableSection
+      <TextArea
         title={'Twitter'}
         placeholder={'https:###'}
         onChangeHandler={(value: string): void => {
@@ -26,7 +30,7 @@ const TeamInformationForm: React.FC = () => {
         }}
         subTitle='Please provide the twitter link for each team member'
       />
-      <EditableSection
+      <TextArea
         title={'LinkedIn'}
         placeholder={'https:###'}
         onChangeHandler={(value: string): void => {

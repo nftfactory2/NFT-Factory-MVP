@@ -1,39 +1,34 @@
 import React, { ReactNode } from 'react';
 import Link from 'next/link';
+import { orbitron } from '@/app/styles/fonts';
 interface CustomButton {
-  height?: number;
-  width?: number;
   children?: ReactNode;
-  backgroundColor?: string;
   style?: object;
   as?: string;
   href?: string;
   handleClick?: () => void;
+  className?: string;
 }
 
 const Button: React.FC<CustomButton> = ({
-  height,
-  width = 100,
   children,
-  backgroundColor = 'primary',
   style,
   as = 'button',
   href = '/',
   handleClick,
+  className,
 }) => {
   return (
-    <div
-      className={`bg-${backgroundColor}`}
+    <button
+      className={`${className} rounded-md ${orbitron.className}`}
       onClick={handleClick}
       style={{
-        width: `${width}%`,
-        height,
         cursor: 'pointer',
         ...style,
       }}
     >
       {as === 'link' ? <Link href={href}>{children}</Link> : <>{children}</>}
-    </div>
+    </button>
   );
 };
 
