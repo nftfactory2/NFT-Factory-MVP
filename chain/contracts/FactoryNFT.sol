@@ -70,6 +70,16 @@ function redeem( uint256 _tokenId)external onlyOwner {
     _burn(_tokenId);
 }  
 
+function adjustMintFee(uint index, uint256 _newMintFee) external onlyOwner {
+  Data storage _data = URIS[index];
+  _data.mintFee = _newMintFee;  
+}
+
+function adjustURI(uint index, string memory _newURI) external onlyOwner {
+  Data storage data = URIS[index];
+  data.uri = _newURI;  
+}
+
 }
 
 
