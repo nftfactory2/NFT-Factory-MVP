@@ -39,7 +39,8 @@ contract SimpleCollectible is ERC721, Ownable {
 		address recipient,
     uint256 _uriIndex
 	) payable external returns (uint256) {
-		Data memory IndexUri = URIS[_uriIndex];
+		
+    Data memory IndexUri = URIS[_uriIndex];
     uint256 amount = IndexUri.mintFee;
     if (msg.value < (amount * 1e18)) {
 			revert moreFunds();
@@ -51,6 +52,7 @@ contract SimpleCollectible is ERC721, Ownable {
       }
 		_tokenIds.increment();
 		return tokenID;
+
 	}
 
   function _createTokenURI(uint256 tokenId, uint256 _uriIndex)internal returns(bool success){
@@ -85,9 +87,9 @@ function redeem( uint256 _tokenId)external onlyOwner {
 
 contract Create2Factory {
 
-  address[] marketplace;
+  address[] public marketplace;
 
-	event Deploy(address addr);
+	event Deploy(address addr, string Name);
 
 	function deploy(
 		string memory Name,
@@ -97,7 +99,7 @@ contract Create2Factory {
 	) external {
 		SimpleCollectible _contract = new SimpleCollectible(Name, Symbol, _URIs, _mintFee);
     marketplace.push(address(_contract));
-		emit Deploy(address(_contract));
+		emit Deploy(address(_contract), Name);
 	}
 
 
