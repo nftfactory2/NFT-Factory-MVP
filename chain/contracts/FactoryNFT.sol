@@ -7,26 +7,39 @@ import "@openzeppelin/contracts/access/Ownable.sol";
 error moreFunds();
 error UriNotMapped();
 error WRONG_INITIALIZATION();
+error TRANSACTION_FAILED();
 
-contract SimpleCollectible is ERC721, Ownable {
+contract SimpleCollectible is ERC721 {
 	using Counters for Counters.Counter;
 	Counters.Counter private _tokenIds;
   mapping(uint=>string) tokenURIs;
   Data[] URIS;
+  address private owner;
   struct Data{
     uint index;
     string uri;
     uint256 mintFee;
   }
 
+/**
+ * 
+ * @param Name name of the Nft
+ * @param Symbol Symbol of the NFT
+ * @param _URIs A List of all the NFT URIs
+ * @param _mintFee Mint fee for each URI
+ * @param _owner owner of the contract
+ * @dev this function takes a list of uris and a list of mint fees and stores it in a struct array
+ * This will enable us perfom certain functions like assertion of mint fees, etc.
+ */
 
 	constructor(
 		string memory Name,
 		string memory Symbol,
 		string[] memory _URIs,
-    uint256[] memory _mintFee
+    uint256[] memory _mintFee,
+    address _owner
 	) ERC721(Name, Symbol) {
-
+    owner = _owner;
     if(_URIs.length != _mintFee.length){
       revert WRONG_INITIALIZATION();
     }
@@ -35,6 +48,18 @@ contract SimpleCollectible is ERC721, Ownable {
     }
 	}
 
+modifier onlyOwner {
+  require(msg.sender == owner, "Not the owner");
+  _;
+}
+
+/**
+ * 
+ * @param recipient receiptient of an NFT
+ * @param _uriIndex the index of the NFT that the msg.sender wants to mint
+ * @dev Since there is no randomization in our minting function, we want to pass a specific nft type to be minted,
+ * we also check for the fee. To make sure the correct amount is being paid.
+ */
 	function createCollectible(
 		address recipient,
     uint256 _uriIndex
@@ -80,22 +105,20 @@ function adjustURI(uint index, string memory _newURI) external onlyOwner {
   data.uri = _newURI;  
 }
 
+function withdraw() external onlyOwner {
+  (bool sent, ) = payable(owner).call{value:address(this).balance}("");
+  if(!sent){
+    revert TRANSACTION_FAILED();
+  }
+}
+
 }
 
 
 
 
 
-
-
-
-
-
-
-
-
-
-contract Create2Factory {
+contract Factory {
 
   address[] public marketplace;
 
@@ -107,7 +130,7 @@ contract Create2Factory {
 		string[] memory _URIs,
     uint[] memory _mintFee
 	) external {
-		SimpleCollectible _contract = new SimpleCollectible(Name, Symbol, _URIs, _mintFee);
+		SimpleCollectible _contract = new SimpleCollectible(Name, Symbol, _URIs, _mintFee,msg.sender);
     marketplace.push(address(_contract));
 		emit Deploy(address(_contract), Name);
 	}
