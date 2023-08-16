@@ -12,6 +12,8 @@ contract SimpleCollectible is ERC721 {
 	using Counters for Counters.Counter;
 	Counters.Counter private _tokenIds;
   mapping(uint=>string) tokenURIs;
+  mapping(address=>uint)redeemed;
+  address[] redeemers;
   Data[] URIS;
   address private owner;
   struct Data{
@@ -90,8 +92,14 @@ function tokenURI(uint tokenId) public view virtual override returns(string memo
         return tokenURIs[tokenId];
     }
 
-function redeem( uint256 _tokenId)external onlyOwner {
+function redeem( uint256 _tokenId)external {
+    address caller = ownerOf(_tokenId);
+    if(caller != msg.sender){
+      revert TRANSACTION_FAILED();
+    }
     _burn(_tokenId);
+    redeemed[msg.sender]++;
+    redeemers.push(msg.sender);
 }  
 
 function adjustMintFee(uint index, uint256 _newMintFee) external onlyOwner {
