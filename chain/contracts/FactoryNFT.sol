@@ -53,14 +53,14 @@ contract SimpleCollectible is ERC721, Ownable {
 		return tokenID;
 	}
 
-  function _createTokenURI(uint256 tokenId, uint256 _uriIndex)internal returns(bool pass){
+  function _createTokenURI(uint256 tokenId, uint256 _uriIndex)internal returns(bool success){
         Data memory IndexUri = URIS[_uriIndex];
         string memory _uri = IndexUri.uri;
         tokenURIs[tokenId] = _uri;
         return true;
     }
 
-  function tokenURI(uint tokenId) public view virtual override returns(string memory){
+function tokenURI(uint tokenId) public view virtual override returns(string memory){
         return tokenURIs[tokenId];
     }
 
