@@ -1,4 +1,4 @@
-import { orbitron } from '@/app/styles/fonts';
+import { orbitron } from '@/fonts/fonts';
 import EditableSection from '@/common/EditableSection';
 import React, { useState } from 'react';
 

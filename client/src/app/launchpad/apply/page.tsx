@@ -1,13 +1,13 @@
 'use client';
 import Button from '@/common/Button';
-import ArtworkDetailsForm from '@/components/forms/ArtworkDetails';
-import GetStarted from '@/components/forms/GetStarted';
+import ArtworkDetailsForm from '@/components/Forms/ArtworkDetails';
+import GetStarted from '@/components/Forms/GetStarted';
 import {
   SecondSectionForm,
   SectionOneForm,
-} from '@/components/forms/ProjectDetails';
-import SalesPlanForm from '@/components/forms/SalesPlan';
-import TeamInformationForm from '@/components/forms/TeamInformation';
+} from '@/components/Forms/ProjectDetails';
+import SalesPlanForm from '@/components/Forms/SalesPlan';
+import TeamInformationForm from '@/components/Forms/TeamInformation';
 import React, { useState } from 'react';
 
 const Apply: React.FC = () => {

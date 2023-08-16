@@ -1,6 +1,6 @@
 'use client';
 import React, { useState, useRef } from 'react';
-import { orbitron } from '@/app/styles/fonts';
+import { orbitron } from '@/fonts/fonts';
 import DropdownSelect from '@/common/Dropdown';
 import EditableSection from '@/common/EditableSection';
 import FileUploader from '@/common/FileUploader';

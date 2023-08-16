@@ -9,7 +9,8 @@ module.exports = {
     extend: {
       colors: {
         primary: '#FFC72C',
-        backgroundSideBar: '#130712',
+        sidebar: '#130712',
+        primaryBg: '#0A0409',
       },
       backgroundImage: {
         'gradient-linear': 'linear-gradient(135deg, #702D6C, #FFC72C)',

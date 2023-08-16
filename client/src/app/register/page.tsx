@@ -2,7 +2,7 @@
 
 import { useRouter } from 'next/navigation';
 import React, { useState } from 'react';
-import { orbitron, poppins } from '../styles/fonts';
+import { orbitron, poppins } from '../../fonts/fonts';
 
 const Register = () => {
   const router = useRouter();

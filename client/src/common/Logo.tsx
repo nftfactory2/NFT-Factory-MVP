@@ -22,7 +22,7 @@ const Logo: React.FC<Props> = (props) => {
               src={img}
               sizes='100vw'
               style={{
-                width: '100%',
+                width: 'auto',
                 height: height + 'px' ?? 'auto',
               }}
             />

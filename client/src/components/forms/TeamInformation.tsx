@@ -1,6 +1,6 @@
 'use client';
 import React, { useState } from 'react';
-import { orbitron } from '@/app/styles/fonts';
+import { orbitron } from '@/fonts/fonts';
 import EditableSection from '@/common/EditableSection';
 import TextArea from '@/common/TextArea';
 
