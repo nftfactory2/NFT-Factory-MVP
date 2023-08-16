@@ -10,4 +10,6 @@ scripts/check.js
 #Hardhat files
 cache
 artifacts
-
+yarn-error.log
+yarn.lock
+package-lock.json
