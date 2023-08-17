@@ -11,12 +11,8 @@ config();
 
 
 /** @type import('hardhat/config').HardhatUserConfig */
-const LOCAL_HOST_URL = process.env.LOCAL_HOST_URL;
-const LOCAL_HOST_ACCOUNT = process.env.LOCAL_HOST_PRIVATE_KEY;
-const SEPOLIA_ACCOUNT = process.env.SEPOLIA_PRIVATE_KEY;
+const SEPOLIA_ACCOUNT = process.env.SEPOLIA_ACCOUNT;
 const SEPOLIA_URL = process.env.SEPOLIA_URL;
-const GOERLI_PRIVATE_KEY = process.env.GOERLI_PRIVATE_KEY
-const GOERLI_URL = process.env.GOERLI_URL
 const MAINNET_RPC_URL = process.env.MAINNET_RPC_URL 
 module.exports = {
 	defaultNetwork: "hardhat",
@@ -34,10 +30,6 @@ module.exports = {
 		]
 	},
 	
-	
-
-	
-
 	namedAccounts: {
 		deployer: {
 			default: 0,
@@ -63,12 +55,7 @@ module.exports = {
 			url: SEPOLIA_URL,
 			chainId: 11155111,
 		},
-		goerli:{
-			accounts: [GOERLI_PRIVATE_KEY],
-			blockConfirmations: 0,
-			url: GOERLI_URL,
-			chainId: 5,
-		}
+		
 	},
 };
 
