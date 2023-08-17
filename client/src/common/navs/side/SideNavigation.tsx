@@ -1,5 +1,5 @@
 'use client';
-import React, {useEffect} from 'react';
+import React, { useEffect } from 'react';
 import Logo from '@/common/Logo';
 import {
   faArrowTrendUp,
@@ -13,7 +13,7 @@ import { usePathname } from 'next/navigation';
 
 const SideBar = () => {
   const pathName = usePathname();
-  
+
   const navigationLinks = [
     {
       name: 'Launchpad',
@@ -40,22 +40,25 @@ const SideBar = () => {
       }}
     >
       <div className='px-4'>
-      <Logo height={30} />
+        <Logo height={30} />
       </div>
       <div className='inline-flex flex-col items-start py-10'>
-        {navigationLinks.map(({name, to, icon}) => (
-          <Link
-            key={name}
-            href={to}
-            className={`${poppins.className} text-sm`}
-          >
-            <div className='flex gap-5 items-center px-4 py-3' style={{ 
-              margin: '1.25rem 0',
-              backgroundColor: to === pathName ? 'rgba(255, 199, 44, 0.12)' : 'none',
-            }}>
-              <FontAwesomeIcon icon={icon} style={{
-                marginRight: '0.5rem'
-              }}/>
+        {navigationLinks.map(({ name, to, icon }) => (
+          <Link key={name} href={to} className={`${poppins.className} text-sm`}>
+            <div
+              className='flex gap-5 items-center px-4 py-3'
+              style={{
+                margin: '1.25rem 0',
+                backgroundColor:
+                  to === pathName ? 'rgba(255, 199, 44, 0.12)' : 'none',
+              }}
+            >
+              <FontAwesomeIcon
+                icon={icon}
+                style={{
+                  marginRight: '0.5rem',
+                }}
+              />
               <span>{name}</span>
             </div>
           </Link>

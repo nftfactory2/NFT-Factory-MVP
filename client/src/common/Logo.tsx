@@ -6,6 +6,7 @@ import app_name from '@/assets/images/app_name.png';
 
 interface Props {
   height: number;
+  only?: boolean;
 }
 
 const Logo: React.FC<Props> = (props) => {

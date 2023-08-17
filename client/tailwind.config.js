@@ -11,6 +11,7 @@ module.exports = {
         primary: '#FFC72C',
         sidebar: '#130712',
         primaryBg: '#0A0409',
+        header: '#1B0A1A',
       },
       backgroundImage: {
         'gradient-linear': 'linear-gradient(135deg, #702D6C, #FFC72C)',
