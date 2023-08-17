@@ -1,17 +1,13 @@
 import Button from '../Button';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faUser } from '@fortawesome/free-solid-svg-icons';
+import Image from 'next/image';
 
 const NavTools = () => {
   return (
     <>
-      <Button className='bg-gradient-linear px-3 py-1 text-sm'>
+      <Button className='bg-gradient-linear px-3 py-2 text-sm'>
         Connect wallet
       </Button>
-      <FontAwesomeIcon
-        icon={faUser}
-        style={{ color: '#FFC72C', cursor: 'pointer' }}
-      />
+      <Image height={25} width={25} src={'/profile.svg'} alt={'profile'} style={{ cursor: 'pointer' }} />
     </>
   );
 };
