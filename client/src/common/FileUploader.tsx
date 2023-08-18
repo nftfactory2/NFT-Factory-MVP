@@ -21,7 +21,7 @@ const FileUploader = forwardRef(
           borderRadius: '0.75rem',
           boxShadow: '-2px 0px 4px 0px rgba(255, 199, 44, 0.08)',
           backdropFilter: 'blur(4px)',
-          cursor: 'pointer'
+          cursor: 'pointer',
         }}
         onClick={() => ref?.current.click()}
       >
@@ -40,7 +40,7 @@ const FileUploader = forwardRef(
             style={{ fontSize: '4rem', fontWeight: 300 }}
           />
         </div>
-          <p className='text-opacity-25'>Upload Image</p>
+        <p className='text-opacity-25'>Upload Image</p>
       </div>
     );
   },

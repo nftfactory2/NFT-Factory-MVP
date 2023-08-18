@@ -13,7 +13,7 @@ const poppins = Poppins({
   subsets: ['latin'],
   variable: '--font-poppins',
   display: 'swap',
-  weight: '500',
+  weight: ['100', '200', '300', '400', '500'],
 });
 
 export { inter, orbitron, poppins };

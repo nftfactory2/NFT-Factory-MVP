@@ -6,6 +6,7 @@ import app_name from '@/assets/images/app_name.png';
 
 interface Props {
   height: number;
+  only?: boolean;
 }
 
 const Logo: React.FC<Props> = (props) => {
@@ -22,7 +23,7 @@ const Logo: React.FC<Props> = (props) => {
               src={img}
               sizes='100vw'
               style={{
-                width: '100%',
+                width: 'auto',
                 height: height + 'px' ?? 'auto',
               }}
             />

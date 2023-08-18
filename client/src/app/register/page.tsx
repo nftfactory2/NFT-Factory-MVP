@@ -2,7 +2,9 @@
 
 import { useRouter } from 'next/navigation';
 import React, { useState } from 'react';
-import { orbitron, poppins } from '../styles/fonts';
+import { orbitron, poppins } from '../../fonts/fonts';
+import TopNavigation from '@/common/navs/top/TopNavigation';
+import Footer from '@/components/Footer';
 
 const Register = () => {
   const router = useRouter();
@@ -24,6 +26,7 @@ const Register = () => {
 
   return (
     <>
+      <TopNavigation />
       <div className='flex justify-center items-center h-screen md:mx-5'>
         <div>
           <h3
@@ -54,7 +57,7 @@ const Register = () => {
 
             <button
               type='submit'
-              className='bg-gradient-linear w-full p-3 mt-5 rounded-md'
+              className='bg-gradient-linear outline-none w-full p-3 mt-5 rounded-md'
               style={orbitron.style}
             >
               Connect Wallet
@@ -62,6 +65,7 @@ const Register = () => {
           </form>
         </div>
       </div>
+      <Footer />
     </>
   );
 };

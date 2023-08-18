@@ -1,6 +1,6 @@
 import './globals.css';
 import type { Metadata } from 'next';
-import { orbitron, poppins } from './styles/fonts';
+import { orbitron, poppins } from '../fonts/fonts';
 
 export const metadata: Metadata = {
   title: 'Create Next App',
@@ -14,7 +14,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang='en'>
-      <body>{children}</body>
+      <body className={`${poppins.className}`}>{children}</body>
     </html>
   );
 }

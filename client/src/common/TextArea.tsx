@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import { poppins } from '@/app/styles/fonts';
+import { poppins } from '@/fonts/fonts';
 
 type Props = {
   title: string;

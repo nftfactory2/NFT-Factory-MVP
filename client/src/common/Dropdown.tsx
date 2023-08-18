@@ -1,6 +1,6 @@
 'use client';
 import React, { useState, useEffect } from 'react';
-import { poppins } from '@/app/styles/fonts';
+import { poppins } from '@/fonts/fonts';
 
 interface DropdownList {
   item: string[];

@@ -1,6 +1,6 @@
 import React, { ReactNode } from 'react';
 import Link from 'next/link';
-import { orbitron } from '@/app/styles/fonts';
+import { orbitron } from '@/fonts/fonts';
 interface CustomButton {
   children?: ReactNode;
   style?: object;
