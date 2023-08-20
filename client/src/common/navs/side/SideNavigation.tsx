@@ -28,7 +28,7 @@ const SideBar = () => {
     {
       name: 'Notifications',
       icon: faBell,
-      to: '/notifications',
+      to: '/notification',
     },
   ];
   return (
