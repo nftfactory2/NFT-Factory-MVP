@@ -1,0 +1,88 @@
+.groupnftdetails {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  h1 {
+    letter-spacing: 12px !important;
+    font-size: medium;
+  }
+  .nftName {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    svg {
+      margin-left: 2px;
+    }
+  }
+
+  .price {
+    display: flex;
+    justify-content: space-around;
+
+    .left-span {
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      left: -15%;
+    }
+    .right-span {
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      left: 15%;
+    }
+  }
+}
+.trending-header {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.trending {
+  width: 300px;
+  height: 500px;
+
+  margin-left: 6%;
+  border-radius: 8px;
+  background: #130712;
+
+  box-shadow: -2px 4px 4px 0px rgba(255, 199, 44, 0.08);
+  backdrop-filter: blur(4px);
+  img {
+    object-fit: contain;
+    max-width: 300px;
+  }
+  .price {
+    display: flex;
+  }
+  .left-span {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    left: 0%;
+  }
+  .right-span {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    left: 42%;
+  }
+  .caption {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .viewdetails {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    a {
+      color: #fff;
+    }
+  }
+}
+.nft-tray {
+  display: flex;
+  flex-direction: row;
+}
