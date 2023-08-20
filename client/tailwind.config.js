@@ -10,6 +10,7 @@ module.exports = {
       colors: {
         primary: '#FFC72C',
         sidebar: '#130712',
+
         primaryBg: '#0A0409',
         header: '#1B0A1A',
       },
