@@ -3,13 +3,10 @@ pragma solidity ^0.8.0;
 import "@openzeppelin/contracts/token/ERC721/ERC721.sol";
 import "@openzeppelin/contracts/utils/Counters.sol";
 
-error moreFunds();
-error UriNotMapped();
-error WRONG_INITIALIZATION();
-error TRANSACTION_FAILED();
 
 contract SimpleCollectible is ERC721 {
-	using Counters for Counters.Counter;
+	
+  using Counters for Counters.Counter;
 	Counters.Counter private _tokenIds;
   mapping(uint=>string) tokenURIs;
   mapping(address=>uint)redeemed;
@@ -42,7 +39,7 @@ contract SimpleCollectible is ERC721 {
 	) ERC721(Name, Symbol) {
     owner = _owner;
     if(_URIs.length != _mintFee.length){
-      revert WRONG_INITIALIZATION();
+      revert("Transaction failed for some reason") ;
     }
     for (uint i = 0; i < _URIs.length; i++) {
       URIS.push(Data(i,_URIs[i],_mintFee[i]));
@@ -69,12 +66,12 @@ modifier onlyOwner {
     Data memory IndexUri = URIS[_uriIndex];
     uint256 amount = IndexUri.mintFee;
     if (msg.value < (amount * 1e18)) {
-			revert moreFunds();
+			revert("Transaction failed for some reason");
 		}
 		uint256 tokenID = _tokenIds.current();
 		_safeMint(recipient, tokenID);
     if(_createTokenURI(tokenID, _uriIndex) != true){
-        revert UriNotMapped();
+        revert("Transaction failed for some reason");
       }
 		_tokenIds.increment();
 		return tokenID;
@@ -95,7 +92,7 @@ function tokenURI(uint tokenId) public view virtual override returns(string memo
 function redeem( uint256 _tokenId)external {
     address caller = ownerOf(_tokenId);
     if(caller != msg.sender){
-      revert TRANSACTION_FAILED();
+      revert("Transaction failed for some reason") ;
     }
     _burn(_tokenId);
     redeemed[msg.sender]++;
@@ -115,12 +112,11 @@ function adjustURI(uint index, string memory _newURI) external onlyOwner {
 function withdraw() external onlyOwner {
   (bool sent, ) = payable(owner).call{value:address(this).balance}("");
   if(!sent){
-    revert TRANSACTION_FAILED();
+    revert("Transaction failed for some reason") ;
   }
 }
 
 }
-
 
 
 
