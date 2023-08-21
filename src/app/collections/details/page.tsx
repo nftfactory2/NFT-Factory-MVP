@@ -1,3 +1,5 @@
+'use client';
+
 import TopNavigation from '@/common/navs/top/TopNavigation';
 import Footer from '@/components/Footer';
 import styles from '@/styles/Home.module.css';
