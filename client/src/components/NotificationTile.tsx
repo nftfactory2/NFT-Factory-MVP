@@ -8,6 +8,7 @@ interface NotificationTileProps {
   time: string;
   source: string;
 }
+
 const NotificationTile: React.FC<NotificationTileProps> = (props) => {
   const { title, message, time, source } = props;
   return (
