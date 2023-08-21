@@ -40,7 +40,7 @@ const Apply: React.FC = () => {
     }
   };
   return (
-    <div className='flex flex-col justify-start h-screen'>
+    <div className='flex flex-col justify-start h-screen mt-10 mb-10'>
       <div className='w-4/5'>{previewCurrentPage()}</div>
       {currentPage > 1 && (
         <div className='flex justify-end w-4/5 mt-5'>
