@@ -1,16 +1,14 @@
-'use client';
-
 import TopNavigation from '@/common/navs/top/TopNavigation';
 import Footer from '@/components/Footer';
 import styles from '@/styles/Home.module.css';
 import Image from 'next/image';
-import { useRouter } from 'next/router';
+import { useRouter } from 'next/navigation';
 
 const Details = () => {
-  const Router = useRouter();
+  const router = useRouter();
 
   const Mint = () => {
-    Router.push('/collections/mint');
+    router.push('/collections/mint');
   };
 
   return (
