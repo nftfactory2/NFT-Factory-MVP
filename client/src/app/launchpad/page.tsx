@@ -10,8 +10,8 @@ const LaunchPad = () => {
     <div className='flex min-h-screen'>
       <SideBar />
       <div className='flex-1 flex-col px-4 py-10'>
-        <div className='flex justify-end items-center gap-4 w-11/12'>
-          <NavTools />
+        <div className='mx-5'>
+          <NavTools title='Launchpad' isMenu={true} />
         </div>
         <Apply />
       </div>

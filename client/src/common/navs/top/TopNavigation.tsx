@@ -1,4 +1,3 @@
-import React from 'react';
 import app_logo from '@/assets/images/app_logo.png';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -21,7 +20,7 @@ const TopNavigation = () => {
   ];
   return (
     <div
-      className='bg-header flex justify-between items-center'
+      className='bg-header flex justify-between items-center px-14'
       style={{
         padding: '0.8rem 1.5rem',
         backgroundColor: '#1B0A1A',

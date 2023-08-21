@@ -1,15 +1,15 @@
 'use client';
 
-import React, { useState } from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faLink, faCamera } from '@fortawesome/free-solid-svg-icons';
-import TopNavigation from '@/common/navs/top/TopNavigation';
+import profile from '@/assets/images/profile.png';
+import Button from '@/common/Button';
 import EditableSection from '@/common/EditableSection';
 import TextArea from '@/common/TextArea';
-import Button from '@/common/Button';
+import TopNavigation from '@/common/navs/top/TopNavigation';
 import { orbitron } from '@/fonts/fonts';
+import { faLink } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Image from 'next/image';
-import profile from '@/assets/images/profile.png';
+import React, { useState } from 'react';
 
 const Settings: React.FC = () => {
   const [username, setUsername] = useState<string>();
@@ -20,19 +20,26 @@ const Settings: React.FC = () => {
     <>
       <TopNavigation />
       <div className='w-3/5 ml-10'>
-        <div className='flex justify-between items-center flex-wrap' style={{
-          background: 'linear-gradient(180deg, rgba(0, 0, 0, 0.47) 0%, rgba(10, 4, 9, 1) 100%)',
-        }}>
+        <div
+          className='flex justify-between items-center flex-wrap'
+          style={{
+            background:
+              'linear-gradient(180deg, rgba(0, 0, 0, 0.47) 0%, rgba(10, 4, 9, 1) 100%)',
+          }}
+        >
           <h2 className={`${orbitron.className} text-2xl`}>Edit Profile</h2>
           <div className='flex flex-row items-center w-2/5 gap-2'>
             <Image
               src={profile}
-              alt="user img_profile"
+              alt='user img_profile'
               className='rounded-full'
               height={150}
-              width={150} />
+              width={150}
+            />
             <div>
-              <p className={`${orbitron.className} text-lg font-light`}>Edit profile picture</p>
+              <p className={`${orbitron.className} text-lg font-light`}>
+                Edit profile picture
+              </p>
               <Image src='/camera.svg' alt='camera' height={20} width={20} />
             </div>
           </div>
@@ -59,7 +66,9 @@ const Settings: React.FC = () => {
           }}
         />
 
-        <h2 className={`${orbitron.className} text-primary mb-3 mt-2`}>Socials</h2>
+        <h2 className={`${orbitron.className} text-primary mb-3 mt-2`}>
+          Socials
+        </h2>
         <div className='flex items-center gap-6'>
           <div className='flex items-center gap-2'>
             <Image
@@ -68,7 +77,8 @@ const Settings: React.FC = () => {
               className='light:invert'
               width={20}
               height={20}
-              priority />
+              priority
+            />
             <span>Discord</span>
             <FontAwesomeIcon icon={faLink} />
           </div>
@@ -80,12 +90,12 @@ const Settings: React.FC = () => {
               className='light:invert'
               width={20}
               height={20}
-              priority />
+              priority
+            />
             <span>Twitter</span>
             <FontAwesomeIcon icon={faLink} />
           </div>
         </div>
-
 
         <div className='flex justify-end mt-10'>
           <Button

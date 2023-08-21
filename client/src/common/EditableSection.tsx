@@ -1,6 +1,6 @@
 'use client';
-import React, { useState, useEffect } from 'react';
 import { poppins } from '@/fonts/fonts';
+import React, { useEffect, useState } from 'react';
 interface Props {
   title: string;
   placeholder: string;

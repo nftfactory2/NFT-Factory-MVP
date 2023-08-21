@@ -1,14 +1,8 @@
 'use client';
-import React, { useEffect } from 'react';
 import Logo from '@/common/Logo';
-import {
-  faArrowTrendUp,
-  faBell,
-  faRocket,
-} from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import Link from 'next/link';
 import { poppins } from '@/fonts/fonts';
+import Image from 'next/image';
+import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
 const SideBar = () => {
@@ -17,18 +11,18 @@ const SideBar = () => {
   const navigationLinks = [
     {
       name: 'Launchpad',
-      icon: faRocket,
+      icon: '/images/rocket_launch.svg',
       to: '/launchpad',
     },
     {
       name: 'Analytics',
-      icon: faArrowTrendUp,
+      icon: '/images/trending-up.svg',
       to: '/analytics',
     },
     {
       name: 'Notifications',
-      icon: faBell,
-      to: '/notifications',
+      icon: '/images/bell.svg',
+      to: '/notification',
     },
   ];
   return (
@@ -46,20 +40,15 @@ const SideBar = () => {
         {navigationLinks.map(({ name, to, icon }) => (
           <Link key={name} href={to} className={`${poppins.className} text-sm`}>
             <div
-              className='flex gap-5 items-center px-4 py-3'
+              className='flex gap-4 items-center px-4 py-3'
               style={{
                 margin: '1.25rem 0',
                 backgroundColor:
                   to === pathName ? 'rgba(255, 199, 44, 0.12)' : 'none',
               }}
             >
-              <FontAwesomeIcon
-                icon={icon}
-                style={{
-                  marginRight: '0.5rem',
-                }}
-              />
-              <span>{name}</span>
+              <Image src={icon} alt='icons' height={20} width={20} />
+              <p>{name}</p>
             </div>
           </Link>
         ))}
