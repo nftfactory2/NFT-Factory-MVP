@@ -23,7 +23,7 @@ const FileUploader = forwardRef(
           backdropFilter: 'blur(4px)',
           cursor: 'pointer',
         }}
-        onClick={() => ref?.current.click()}
+        // onClick={() => ref?.current.click()}
       >
         <input
           type='file'
